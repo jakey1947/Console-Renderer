@@ -1,10 +1,9 @@
 #include <iostream>
 #include <time.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 
-#include "project.hpp"
+#include "UIFramework.h"
 
-using namespace std;
 using namespace UIframework;
 using namespace CustomTypes;
 
@@ -12,11 +11,18 @@ using namespace CustomTypes;
 int main()
 {
   std::cout << "Hello World" << "\n\n";
+  Canvas canvas = Canvas();
 
+  for (size_t i = 0; i < 10; i++)
+  {
+  Vector2 v1 = Vector2(rand() %10, rand() %10);
 
-  //Vector2 v1 = Vector2(rand() %10, rand() %10);
+  canvas.buffer.UpdateValue(v1, '#');
+  }
 
-
+  canvas.Render();
+  
+  
   if(getchar())
   {
     system("clear");

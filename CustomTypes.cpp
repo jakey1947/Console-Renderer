@@ -1,7 +1,5 @@
-#include "project.hpp"
 namespace CustomTypes
 {
-
     template <typename T>
     int sgn(T val)
     {
