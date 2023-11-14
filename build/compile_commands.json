@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build",
+  "command": "/usr/bin/c++ -g -o CMakeFiles/ConsoleRenderer.dir/main.cpp.o -c \"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/main.cpp\"",
+  "file": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/main.cpp",
+  "output": "CMakeFiles/ConsoleRenderer.dir/main.cpp.o"
+}
+]

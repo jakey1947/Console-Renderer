@@ -128,7 +128,7 @@ namespace Uiframework
       int length = slope.GetMaximum();
 
       if(length == 0 || !isActive)
-      return;
+        return;
 
       for (size_t i = 0; i < length; i++)
       {
