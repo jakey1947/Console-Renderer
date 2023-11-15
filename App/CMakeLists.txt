@@ -4,8 +4,11 @@ project(ConsoleRenderer VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-add_subdirectory(Libraries)
-add_subdirectory(App)
+file(GLOB SRC_FILES *.cpp)
+
+add_executable(BuiltApp main.cpp)
+
+target_link_libraries( BuiltApp UIFramework )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

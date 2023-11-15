@@ -1,5 +1,6 @@
 #include <math.h>
 #include <iostream>
+#include <vector>
 #include "UIFramework.h"
 
 
@@ -11,11 +12,19 @@ namespace Uiframework
 
   struct TextBuffer
   {
+    Vector2 size;
     vector<string> buffer;
 
     public:
 
-    TextBuffer(){}
+    TextBuffer(Vector2 size = Vector2(80,80))
+    {
+      this->size = size;
+      for (int x = 0; x < size.x; x++) 
+      {
+        buffer[x] = string(size.y, ' ');
+      }
+    }
 
     Vector2 GetSize()
     {
@@ -52,6 +61,13 @@ namespace Uiframework
     CustomTypes::Vector2 size;
     std::vector<UIElement> elements;
     TextBuffer buffer;
+
+    Canvas(Vector2 size = Vector2(80,80))
+    {
+      this -> size = size;
+      buffer = TextBuffer(size);
+      std::cout << "Canvas Created";
+    }
 
     void AddElement(UIElement element)
     {

@@ -291,13 +291,13 @@ CTEST_SUBMIT_RETRY_COUNT:STRING=3
 CTEST_SUBMIT_RETRY_DELAY:STRING=5
 
 //Value Computed by CMake
-ConsoleRenderer_BINARY_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build
+ConsoleRenderer_BINARY_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/App
 
 //Value Computed by CMake
-ConsoleRenderer_IS_TOP_LEVEL:STATIC=ON
+ConsoleRenderer_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-ConsoleRenderer_SOURCE_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer
+ConsoleRenderer_SOURCE_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/App
 
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
@@ -316,6 +316,18 @@ MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Name of the computer/site where compile is being run
 SITE:STRING=longbow
+
+//Value Computed by CMake
+UIFramework_BINARY_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/Libraries
+
+//Value Computed by CMake
+UIFramework_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+UIFramework_LIB_DEPENDS:STATIC=general;CustomTypes;
+
+//Value Computed by CMake
+UIFramework_SOURCE_DIR:STATIC=/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/Libraries
 
 
 ########################
@@ -422,7 +434,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

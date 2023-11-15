@@ -208,38 +208,6 @@ build ContinuousMemCheck: phony CMakeFiles/ContinuousMemCheck
 
 build ContinuousSubmit: phony CMakeFiles/ContinuousSubmit
 
-# =============================================================================
-# Object build statements for EXECUTABLE target ConsoleRenderer
-
-
-#############################################
-# Order-only phony target for ConsoleRenderer
-
-build cmake_object_order_depends_target_ConsoleRenderer: phony || CMakeFiles/ConsoleRenderer.dir
-
-build CMakeFiles/ConsoleRenderer.dir/main.cpp.o: CXX_COMPILER__ConsoleRenderer_unscanned_Debug /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/main.cpp || cmake_object_order_depends_target_ConsoleRenderer
-  DEP_FILE = CMakeFiles/ConsoleRenderer.dir/main.cpp.o.d
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/ConsoleRenderer.dir
-  OBJECT_FILE_DIR = CMakeFiles/ConsoleRenderer.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target ConsoleRenderer
-
-
-#############################################
-# Link the executable ConsoleRenderer
-
-build ConsoleRenderer: CXX_EXECUTABLE_LINKER__ConsoleRenderer_Debug CMakeFiles/ConsoleRenderer.dir/main.cpp.o
-  FLAGS = -g
-  LINK_FLAGS = -rdynamic
-  OBJECT_DIR = CMakeFiles/ConsoleRenderer.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = ConsoleRenderer
-  TARGET_PDB = ConsoleRenderer.dbg
-
 
 #############################################
 # Utility command for package
@@ -525,7 +493,242 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
   pool = console
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target CustomTypes
+
+
+#############################################
+# Order-only phony target for CustomTypes
+
+build cmake_object_order_depends_target_CustomTypes: phony || Libraries/CMakeFiles/CustomTypes.dir
+
+build Libraries/CMakeFiles/CustomTypes.dir/CustomTypes.cpp.o: CXX_COMPILER__CustomTypes_unscanned_Debug /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/CustomTypes.cpp || cmake_object_order_depends_target_CustomTypes
+  DEP_FILE = Libraries/CMakeFiles/CustomTypes.dir/CustomTypes.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = Libraries/CMakeFiles/CustomTypes.dir
+  OBJECT_FILE_DIR = Libraries/CMakeFiles/CustomTypes.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target CustomTypes
+
+
+#############################################
+# Link the static library Libraries/libCustomTypes.a
+
+build Libraries/libCustomTypes.a: CXX_STATIC_LIBRARY_LINKER__CustomTypes_Debug Libraries/CMakeFiles/CustomTypes.dir/CustomTypes.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Libraries/CMakeFiles/CustomTypes.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Libraries/libCustomTypes.a
+  TARGET_PDB = CustomTypes.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target UIFramework
+
+
+#############################################
+# Order-only phony target for UIFramework
+
+build cmake_object_order_depends_target_UIFramework: phony || cmake_object_order_depends_target_CustomTypes
+
+build Libraries/CMakeFiles/UIFramework.dir/UIFramework.cpp.o: CXX_COMPILER__UIFramework_unscanned_Debug /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/UIFramework.cpp || cmake_object_order_depends_target_UIFramework
+  DEP_FILE = Libraries/CMakeFiles/UIFramework.dir/UIFramework.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = Libraries/CMakeFiles/UIFramework.dir
+  OBJECT_FILE_DIR = Libraries/CMakeFiles/UIFramework.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target UIFramework
+
+
+#############################################
+# Link the static library Libraries/libUIFramework.a
+
+build Libraries/libUIFramework.a: CXX_STATIC_LIBRARY_LINKER__UIFramework_Debug Libraries/CMakeFiles/UIFramework.dir/UIFramework.cpp.o || Libraries/libCustomTypes.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Libraries/CMakeFiles/UIFramework.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Libraries/libUIFramework.a
+  TARGET_PDB = UIFramework.a.dbg
+
+
+#############################################
+# Utility command for package
+
+build Libraries/CMakeFiles/package.util: CUSTOM_COMMAND Libraries/all
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build" && /usr/bin/cpack --config ./CPackConfig.cmake
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build Libraries/package: phony Libraries/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build Libraries/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build" && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/data/user\ data/documents/Projects/Code/C++/ConsoleRenderer/build/CPackSourceConfig.cmake
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build Libraries/package_source: phony Libraries/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build Libraries/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/Libraries" && /usr/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build Libraries/test: phony Libraries/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build Libraries/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/Libraries" && /usr/bin/ccmake -S"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer" -B"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build Libraries/edit_cache: phony Libraries/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Libraries/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/Libraries" && /usr/bin/cmake --regenerate-during-build -S"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer" -B"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Libraries/rebuild_cache: phony Libraries/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target BuiltApp
+
+
+#############################################
+# Order-only phony target for BuiltApp
+
+build cmake_object_order_depends_target_BuiltApp: phony || cmake_object_order_depends_target_CustomTypes cmake_object_order_depends_target_UIFramework
+
+build App/CMakeFiles/BuiltApp.dir/main.cpp.o: CXX_COMPILER__BuiltApp_unscanned_Debug /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/App/main.cpp || cmake_object_order_depends_target_BuiltApp
+  DEP_FILE = App/CMakeFiles/BuiltApp.dir/main.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = App/CMakeFiles/BuiltApp.dir
+  OBJECT_FILE_DIR = App/CMakeFiles/BuiltApp.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target BuiltApp
+
+
+#############################################
+# Link the executable App/BuiltApp
+
+build App/BuiltApp: CXX_EXECUTABLE_LINKER__BuiltApp_Debug App/CMakeFiles/BuiltApp.dir/main.cpp.o | Libraries/libUIFramework.a Libraries/libCustomTypes.a || Libraries/libCustomTypes.a Libraries/libUIFramework.a
+  FLAGS = -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = Libraries/libUIFramework.a  Libraries/libCustomTypes.a
+  OBJECT_DIR = App/CMakeFiles/BuiltApp.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = App/BuiltApp
+  TARGET_PDB = BuiltApp.dbg
+
+
+#############################################
+# Utility command for package
+
+build App/CMakeFiles/package.util: CUSTOM_COMMAND App/all
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build" && /usr/bin/cpack --config ./CPackConfig.cmake
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build App/package: phony App/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build App/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build" && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/data/user\ data/documents/Projects/Code/C++/ConsoleRenderer/build/CPackSourceConfig.cmake
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build App/package_source: phony App/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build App/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/App" && /usr/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build App/test: phony App/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build App/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/App" && /usr/bin/ccmake -S"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer" -B"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build App/edit_cache: phony App/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build App/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/App" && /usr/bin/cmake --regenerate-during-build -S"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer" -B"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build App/rebuild_cache: phony App/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build BuiltApp: phony App/BuiltApp
+
+build CustomTypes: phony Libraries/libCustomTypes.a
+
+build UIFramework: phony Libraries/libUIFramework.a
+
+build libCustomTypes.a: phony Libraries/libCustomTypes.a
+
+build libUIFramework.a: phony Libraries/libUIFramework.a
 
 # =============================================================================
 # Folder targets.
@@ -535,7 +738,21 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 #############################################
 # Folder: /mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build
 
-build all: phony ConsoleRenderer
+build all: phony Libraries/all App/all
+
+# =============================================================================
+
+#############################################
+# Folder: /mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/App
+
+build App/all: phony App/BuiltApp
+
+# =============================================================================
+
+#############################################
+# Folder: /mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build/Libraries
+
+build Libraries/all: phony Libraries/libCustomTypes.a Libraries/libUIFramework.a
 
 # =============================================================================
 # Unknown Build Time Dependencies.
@@ -549,14 +766,14 @@ build all: phony ConsoleRenderer
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/App/CMakeLists.txt /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
+build /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/App/CMakeLists.txt /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/CMakeLists.txt /mnt/data/user$ data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
 
 
 #############################################

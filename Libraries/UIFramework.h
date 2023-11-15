@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include "CustomTypes.h"
@@ -10,9 +11,9 @@ namespace UIframework
   public:
     Vector2 position;
     bool isActive;
-    virtual void render();
+    virtual void render(){}
 
-    void SetPosition(Vector2 newPosition);
+    void SetPosition(Vector2 newPosition){};
   };
 
   struct TextBuffer
@@ -21,7 +22,7 @@ namespace UIframework
 
     public:
 
-    TextBuffer(){}
+    TextBuffer(){};
 
     bool UpdateValue(Vector2 position, char newChar);
   };
@@ -33,20 +34,20 @@ namespace UIframework
     std::vector<UIElement> elements;
     TextBuffer buffer;
 
-    Canvas();
+    Canvas(Vector2 size = Vector2(80,80)){std::cout << "only header was read";};
 
-    void AddElement(UIElement element);
+    void AddElement(UIElement element){};
 
-    void Render();
+    void Render(){};
   };
 
 
   class CardinalLine: public UIElement
   {
   public: 
-    CardinalLine();
+    CardinalLine(){};
 
-    void Render();
+    void Render(){};
   };
 
   class Box: public UIElement
@@ -57,16 +58,16 @@ namespace UIframework
     public:
     Vector2 size;
     char corner, xChar, yChar;
-    Box();
+    Box(){};
 
-    void Render();
+    void Render(){};
   };
 
 
   class renderer
   {
 
-    void render();
+    void render(){};
 
   };
 }

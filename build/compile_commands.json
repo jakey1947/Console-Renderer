@@ -1,8 +1,20 @@
 [
 {
   "directory": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build",
-  "command": "/usr/bin/c++ -g -o CMakeFiles/ConsoleRenderer.dir/main.cpp.o -c \"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/main.cpp\"",
-  "file": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/main.cpp",
-  "output": "CMakeFiles/ConsoleRenderer.dir/main.cpp.o"
+  "command": "/usr/bin/c++ -g -o Libraries/CMakeFiles/CustomTypes.dir/CustomTypes.cpp.o -c \"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/CustomTypes.cpp\"",
+  "file": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/CustomTypes.cpp",
+  "output": "Libraries/CMakeFiles/CustomTypes.dir/CustomTypes.cpp.o"
+},
+{
+  "directory": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build",
+  "command": "/usr/bin/c++ -g -o Libraries/CMakeFiles/UIFramework.dir/UIFramework.cpp.o -c \"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/UIFramework.cpp\"",
+  "file": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/Libraries/UIFramework.cpp",
+  "output": "Libraries/CMakeFiles/UIFramework.dir/UIFramework.cpp.o"
+},
+{
+  "directory": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/build",
+  "command": "/usr/bin/c++ -g -o App/CMakeFiles/BuiltApp.dir/main.cpp.o -c \"/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/App/main.cpp\"",
+  "file": "/mnt/data/user data/documents/Projects/Code/C++/ConsoleRenderer/App/main.cpp",
+  "output": "App/CMakeFiles/BuiltApp.dir/main.cpp.o"
 }
 ]
