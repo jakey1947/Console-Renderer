@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-c++"
+	BuildStamp="20231117-0546-Experimental"
+	Name="longbow"
+	Generator="ctest-3.27.8"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="13.2.1"
+	OSName="Linux"
+	Hostname="longbow"
+	OSRelease="6.6.1-zen1-1-zen"
+	OSVersion="#1 ZEN SMP PREEMPT_DYNAMIC Wed, 08 Nov 2023 16:05:16 +0000"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="23"
+	ModelID="8"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="31989"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4056.85"
+	>
+	<Testing>
+		<StartDateTime>Nov 17 22:00 AEST</StartDateTime>
+		<StartTestTime>1700222449</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 17 22:00 AEST</EndDateTime>
+		<EndTestTime>1700222449</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

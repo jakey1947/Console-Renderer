@@ -5,44 +5,99 @@ namespace CustomTypes
       return (T(0) < val) - (val < T(0));
   }
 
-  struct Vector2
-  {
-    int x, y;
+    struct Vector2
+    {
+        public:
+        int x, y;
 
-    Vector2(int x, int y){};
-    Vector2(){};
-    
-    int GetMaximum(){return int();};
-    #pragma region operators
-    Vector2 operator+(Vector2 other){return Vector2();};
+        Vector2(int x = 0, int y = 0) : x{x}, y{y} {}
 
-    Vector2 operator-(Vector2 other){return Vector2();};
+        
+          int GetMaximum()
+        {
+            return x > y ? x : y;
+        }
 
-    Vector2 operator*(Vector2 other){return Vector2();};
+        #pragma region Operators
+        Vector2 operator+(const Vector2& r){
+            return Vector2(x + r.x, y + r.y);
+        }
 
-    Vector2 operator/(Vector2 other){return Vector2();};
+        Vector2 operator-(const Vector2& r){
+            return Vector2(x - r.x, y - r.y);
+        }
 
-    Vector2 operator*(int other){return Vector2();};
+        Vector2 operator*(const Vector2& r){
+            return Vector2(x * r.x, y * r.y);
+        }
 
-    Vector2 operator/(int other){return Vector2();};
+        Vector2 operator/(const Vector2& r){
+            return Vector2(x / r.x, y / r.y);
+        }
 
-    bool operator==(Vector2 other){return true;};
+        Vector2 operator*(int r)
+        {
+            return Vector2(x * r, y * r);
+        }
 
-    bool operator!=(Vector2 other){return true;};
+        Vector2 operator/(int r)
+        {
+            return Vector2(x / r, y / r);
+        }
 
-    bool operator<(Vector2 other){return true;};
-    bool operator>(Vector2 other){return true;};
-    bool operator<=(Vector2 other){return true;};
-    bool operator>=(Vector2 other){return true;};
+        inline bool operator==(const Vector2& r)
+        {
+            return (x == r.x && y == r.y);
+        }
 
-        //Vector2 , int comparisons
-    bool operator==(int r){return true;};
-    bool operator!=(int r){return true;};
-    bool operator<(int r){return true;};
-    bool operator>(int r){return true;};
-    bool operator>=(int r){return true;};
-    bool operator<=(int r){return true;};
-    #pragma endregion
-    
-    };  
+        inline bool operator!=(const Vector2& r){
+            return !(this == &r);
+        }
+        inline bool operator<(const Vector2& r)
+        {
+            return x < r.x || y < r.y;
+        }
+        inline bool operator>(const Vector2& r)
+        {
+            return &r < this;
+        }
+        inline bool operator>=(const Vector2& r)
+        {
+            return !(this < &r);
+        }
+        inline bool operator<=(const Vector2& r)
+        {
+            return !(&r < this);
+        }
+
+        //   //Vector2 , int comparisons
+        //   inline bool operator==(int r)
+        //   {
+        //       return (x == r && y == r);
+        //   }
+
+        //   inline bool operator!=(int r){
+        //     return !(this == r);
+        //   }
+        //   inline bool operator<(int r)
+        //   {
+        //       return x < r || y < r;
+        //   }
+        //   inline bool operator>(int r)
+        //   {
+        //       return r < l;
+        //   }
+        //   inline bool operator>=(int r)
+        //   {
+        //       return !(this < r);
+        //   }
+
+        //   inline bool operator<=(int r)
+        //   {
+        //       return !(r < this);
+        //   }
+
+        #pragma endregion
+        
+    };      
 }

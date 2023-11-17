@@ -5,69 +5,136 @@
 
 namespace UIframework
 {
-  using namespace CustomTypes;
-  class UIElement
-  {
-  public:
-    Vector2 position;
-    bool isActive;
-    virtual void render(){}
-
-    void SetPosition(Vector2 newPosition){};
-  };
 
   struct TextBuffer
   {
     std::vector<std::string> buffer;
+    CustomTypes::Vector2 size;
 
     public:
 
-    TextBuffer(){};
+    TextBuffer(CustomTypes::Vector2 size = CustomTypes::Vector2(80,80))
+    {
+      this->size = size;
+      for (int x = 0; x < size.x; x++) 
+      {
+        buffer.push_back(std::string(size.y, ' '));
+      }
+    }
 
-    bool UpdateValue(Vector2 position, char newChar);
+    CustomTypes::Vector2 GetSize()
+    {
+      return CustomTypes::Vector2(buffer.size(), buffer[0].size());
+    }
+
+    bool UpdateValue(CustomTypes::Vector2 position, char newChar);
   };
+
+  class UIElement
+  {
+    public:
+    CustomTypes::Vector2 position;
+    bool isActive = true;
+
+    void SetPosition(CustomTypes::Vector2 newPosition);
+  
+    virtual void Render(TextBuffer* buffer){std::cout << "virtual Render method called";}
+  }; 
   
   struct Canvas
   {
   public:
     CustomTypes::Vector2 size;
-    std::vector<UIElement> elements;
+    std::vector<UIElement*> elements;
     TextBuffer buffer;
 
-    Canvas(Vector2 size = Vector2(80,80)){std::cout << "only header was read";};
+        Canvas(CustomTypes::Vector2 size = CustomTypes::Vector2(80,80))
+    {
+      this -> size = size;
+      buffer = TextBuffer(size);
+      std::cout << "Canvas Created \n";
+    };
 
-    void AddElement(UIElement element){};
+    void AddElement(UIElement* element);
 
-    void Render(){};
+    void Render();
   };
 
 
   class CardinalLine: public UIElement
   {
   public: 
-    CardinalLine(){};
+    int length;
+    bool isVertical;
+    char lineCharacter;
 
-    void Render(){};
+  CardinalLine(CustomTypes::Vector2 Position = CustomTypes::Vector2(0,0), int newLength = 3, bool isVertical = false)
+  {
+    length = newLength;
+    position = Position;
+    this->isVertical = isVertical;
+  };
+
+    void Render(TextBuffer* buffer) override;
+  };
+
+  class Line: public UIElement
+  {
+        public:
+    CustomTypes::Vector2 pointB;
+    char lineChar = 'o';
+
+    Line(CustomTypes::Vector2 pointA = CustomTypes::Vector2(0,0), CustomTypes::Vector2 pointB = CustomTypes::Vector2(1,0), char lineChar = 'o')
+    {
+      position = pointA;
+      this->pointB = pointB;
+      this->lineChar = lineChar;
+    }
+
+    void Render(TextBuffer* buffer) override;
   };
 
   class Box: public UIElement
   {
     private:
-    CardinalLine lines[4];
+    CardinalLine lines[4]  = {CardinalLine(), CardinalLine(), CardinalLine(), CardinalLine()};
 
     public:
-    Vector2 size;
+    CustomTypes::Vector2 size;
     char corner, xChar, yChar;
-    Box(){};
 
-    void Render(){};
+    Box(CustomTypes::Vector2 position = CustomTypes::Vector2(0,0), CustomTypes::Vector2 size = CustomTypes::Vector2(5,5), char xChar = '-', char yChar = '|', char corner = 'O')
+    {
+      this->position = position;
+      this->corner = corner;
+      this->xChar = xChar;
+      this->yChar = yChar;
+      this->size = size;
+
+      lines[0].isVertical = false;
+      lines[1].isVertical = false;
+      lines[2].isVertical = true;
+      lines[3].isVertical = true;
+
+      lines[0].lineCharacter = '-';
+      lines[1].lineCharacter = '-';
+      lines[2].lineCharacter = '|';
+      lines[3].lineCharacter = '|';
+
+      UpdateLines();
+
+    }
+
+    void UpdateLines();
+
+    void Render(TextBuffer* buffer) override;
   };
 
 
   class renderer
   {
 
-    void render(){};
+    void render();
 
   };
 }

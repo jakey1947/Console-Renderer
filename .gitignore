@@ -46,3 +46,6 @@ build/Testing/20231115-1153/Test.xml
 build/Testing/Temporary/LastTest_20231114-0437.log
 build/Testing/Temporary/LastTest_20231115-1153.log
 .gitignore
+.cache/clangd/index/main.cpp.15C2CA1311217F6C.idx
+.cache/clangd/index/UIFramework.cpp.5E5CF95E5917689C.idx
+.cache/clangd/index/UIFramework.h.C6D5818715C77D1B.idx
