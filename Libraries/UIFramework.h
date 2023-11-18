@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,6 +22,8 @@ namespace UIframework
         buffer.push_back(std::string(size.y, ' '));
       }
     }
+
+    bool WriteString(CustomTypes::Vector2 position, std::string text);
 
     CustomTypes::Vector2 GetSize()
     {
@@ -51,7 +54,7 @@ namespace UIframework
         Canvas(CustomTypes::Vector2 size = CustomTypes::Vector2(80,80))
     {
       this -> size = size;
-      buffer = TextBuffer(size);
+      buffer = TextBuffer(CustomTypes::Vector2(size.y, size.x));
       std::cout << "Canvas Created \n";
     };
 
@@ -91,6 +94,8 @@ namespace UIframework
       this->lineChar = lineChar;
     }
 
+      float Length();
+
     void Render(TextBuffer* buffer) override;
   };
 
@@ -124,10 +129,29 @@ namespace UIframework
       UpdateLines();
 
     }
-
     void UpdateLines();
+    void Render(TextBuffer* buffer) override;
+
+
+  };
+
+
+  class TextBox : public UIElement
+  {
+    public:
+    CustomTypes::Vector2 size;
+    std::string text;
+    bool wrap;
+
+    TextBox(CustomTypes::Vector2 position = CustomTypes::Vector2(0,0), CustomTypes::Vector2 size = CustomTypes::Vector2(1,0), std::string contents = "")
+    {
+      this->position = position;
+      this->size = size;
+      this->text = contents;
+    }
 
     void Render(TextBuffer* buffer) override;
+
   };
 
 

@@ -1,5 +1,6 @@
 #include <math.h>
 #include <iostream>
+#include <string>
 #include <vector>
 
 
@@ -20,6 +21,22 @@ namespace UIframework
       if(position < 0 || position >= Vector2(buffer.size(), buffer[0].size())) return false;
 
       buffer[position.y][position.x] = newChar;
+      return true;
+    }
+
+    bool TextBuffer::WriteString(CustomTypes::Vector2 position, std::string text)
+    {
+      CustomTypes::Vector2 cursorPos = position;
+
+      if(text.length() + cursorPos.x >= size.y)
+        return false;
+
+      for (size_t i = 0; i < text.length(); i++) 
+      {
+        if(!UpdateValue(cursorPos, text[i]))
+          return false;
+        cursorPos += Vector2(1,0);
+      }
       return true;
     }
 
@@ -70,15 +87,19 @@ namespace UIframework
     }
   }
 
+  float Line::Length()
+  {
+    return (position - pointB).abs().Magnitude();
+  }
+
   void Line::Render(TextBuffer* buffer) 
   {
-    Vector2 slope = position - pointB;
-    int length = slope.GetMaximum();
+    Vector2 slope = (position - pointB).Normalize();
 
-    if(length == 0 || !isActive)
+    if(Length() == 0 || !isActive)
       return;
 
-    for (size_t i = 0; i < length; i++)
+    for (size_t i = 0; i < Length(); i++)
     {
       if( !buffer->UpdateValue(position + slope * i, lineChar) ) break;
     }
@@ -114,35 +135,39 @@ namespace UIframework
 
   }
 
-  class TextBox : public UIElement
+
+  void TextBox::Render(TextBuffer* buffer) 
   {
-    public:
-    Vector2 size;
-    string text;
-    bool wrap;
+    Vector2 cursorPos = position;
+    std::string temp = text;
+    std::vector<std::string> splitString;
 
-    TextBox(Vector2 position = Vector2(0,0), Vector2 size = Vector2(1,0))
+    size_t pos = 0;
+    std::string token;
+    //split the string into individual words
+    while ((pos = temp.find(' ')) != std::string::npos) 
     {
-      this->position = position;
-      this->size = size;
+        token = temp.substr(0, pos);
+        splitString.push_back(token);
+        temp.erase(0, pos + 1);
     }
+    splitString.push_back(temp);
 
-    void Render(TextBuffer* buffer) override 
+    int xBound = position.x + size.x;
+
+    for (size_t i = 0; i < splitString.size(); i++)
     {
-      Vector2 cursorPos = position;
 
-      for (size_t i = 0; i < text.length(); i++)
+      if(cursorPos.x + splitString[i].length() >= xBound || !buffer->WriteString(cursorPos, splitString[i]))
       {
-        if(!buffer->UpdateValue(position, text[i]) || cursorPos.x > position.x + size.x)
-        {
-          cursorPos = Vector2(position.x, cursorPos.y+1);
-          buffer->UpdateValue(position, text[i]);
-        }
-      }      
+        cursorPos = Vector2(position.x, cursorPos.y+1);
+        buffer->WriteString(cursorPos, splitString[i] + " ");
+        cursorPos.x += splitString[i].length() + 1;
+        continue;
+      } 
+
+      cursorPos.x += splitString[i].length() + 1;
     }
+    return;      
   };
-
-
-  void renderer::render(){}
-
 };
