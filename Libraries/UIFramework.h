@@ -41,7 +41,7 @@ namespace UIframework
 
     void SetPosition(CustomTypes::Vector2 newPosition);
   
-    virtual void Render(TextBuffer* buffer){std::cout << "virtual Render method called";}
+    virtual void WriteToBuffer(TextBuffer* buffer){std::cout << "virtual Render method called";}
   }; 
   
   struct Canvas
@@ -78,7 +78,7 @@ namespace UIframework
     this->isVertical = isVertical;
   };
 
-    void Render(TextBuffer* buffer) override;
+    void WriteToBuffer(TextBuffer* buffer) override;
   };
 
   class Line: public UIElement
@@ -96,7 +96,7 @@ namespace UIframework
 
       float Length();
 
-    void Render(TextBuffer* buffer) override;
+    void WriteToBuffer(TextBuffer* buffer) override;
   };
 
   class Box: public UIElement
@@ -130,7 +130,7 @@ namespace UIframework
 
     }
     void UpdateLines();
-    void Render(TextBuffer* buffer) override;
+    void WriteToBuffer(TextBuffer* buffer) override;
 
 
   };
@@ -150,7 +150,7 @@ namespace UIframework
       this->text = contents;
     }
 
-    void Render(TextBuffer* buffer) override;
+    void WriteToBuffer(TextBuffer* buffer) override;
 
   };
 

@@ -56,7 +56,7 @@ namespace UIframework
   {
     for (int i = 0; i  < elements.size(); i++)
     {
-      elements[i]->Render(&buffer);
+      elements[i]->WriteToBuffer(&buffer);
     }
 
     string outString = "";
@@ -69,7 +69,7 @@ namespace UIframework
     std::cout << outString;
   }
 
-  void CardinalLine::Render(TextBuffer* buffer) 
+  void CardinalLine::WriteToBuffer(TextBuffer* buffer) 
   {
     if(this->length == 0 || !isActive)
       return;
@@ -92,7 +92,7 @@ namespace UIframework
     return (position - pointB).abs().Magnitude();
   }
 
-  void Line::Render(TextBuffer* buffer) 
+  void Line::WriteToBuffer(TextBuffer* buffer) 
   {
     Vector2 slope = (position - pointB).Normalize();
 
@@ -119,14 +119,14 @@ namespace UIframework
     lines[3].length = size.y;
   }
 
-  void Box::Render(TextBuffer* buffer)
+  void Box::WriteToBuffer(TextBuffer* buffer)
   {
     if (!isActive) 
       return;
 
     for (size_t i = 0; i < 4; i++)
     {
-      lines[i].Render(buffer);
+      lines[i].WriteToBuffer(buffer);
     }
     for (size_t i = 0; i < 4; i++)
     {
@@ -136,7 +136,7 @@ namespace UIframework
   }
 
 
-  void TextBox::Render(TextBuffer* buffer) 
+  void TextBox::WriteToBuffer(TextBuffer* buffer) 
   {
     Vector2 cursorPos = position;
     std::string temp = text;
